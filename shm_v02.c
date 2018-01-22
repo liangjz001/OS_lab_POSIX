@@ -24,11 +24,11 @@ main(int argc, char * argv[]) {
   int j = 0;
   for (j=0; j<N_WRITER; j++){
     pthread_create(&tid_W[j], NULL, writring, NULL);
-    pthread_join(&tid_W[j], NULL);
+    pthread_join(tid_W[j], NULL);
   }
   for (j=0; j<N_READER; j++){
     pthread_create(&tid_R[j], NULL, reading, NULL);
-    pthread_join(&tid_R[j], NULL);
+    pthread_join(tid_R[j], NULL);
   }
 
 }
@@ -61,6 +61,7 @@ void *reading(void *arg){
       printf("the reading thread is exiting\n" );
       break;       
     }
+    printf("reading is runing\n");
     if(globle_count != 0) {
       printf("%d <-\n", globle_count);
       globle_count = 0;
