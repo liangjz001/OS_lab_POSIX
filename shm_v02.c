@@ -40,7 +40,7 @@ void *writring(void *arg){
   while(1){
     if (i == FINAL_VALUE){
       printf("the writring thread is exiting\n" );
-      pthread_exit();
+      break;
     }
     if (globle_count == 0) {
        printf("%d ->\n", i);
@@ -58,7 +58,7 @@ void *reading(void *arg){
   while(1){
     if (globle_count == FINAL_VALUE) {
       printf("the reading thread is exiting\n" );
-      pthread_exit();        
+      break;       
     }
     if(globle_count != 0) {
       printf("%d <-\n", globle_count);
