@@ -47,7 +47,7 @@ void *writring(void *arg){
        globle_count = i;
        i++;
      }
-     sleep(random()%5);
+     Sleep(random()%5);
    }
    pthread_exit(NULL);
  }
@@ -65,7 +65,7 @@ void *reading(void *arg){
       printf("%d <-\n", globle_count);
       globle_count = 0;
   }
-  sleep(random()%5);
+  Sleep(random()%5);
  }
  
  pthread_exit(NULL);
