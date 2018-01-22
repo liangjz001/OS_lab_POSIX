@@ -50,17 +50,15 @@ void *writring(void *arg){
     }
 
       pthread_mutex_lock (& mutex1 );
-      if (temp != -1){
-      pthread_cond_wait(&writing,& mutex1);
-    }
-    else{
-      temp = 0;
+      if (temp == globle_count){
+      pthread_cond_wait(&write,& mutex1);
     }
        printf("%d ->\n", i);
        globle_count = i;
        pthread_cond_signal(&read);
        pthread_mutex_unlock(& mutex1 );
        i++;
+       temp = i;
      
      sleep(random()%5);
    }
