@@ -11,7 +11,7 @@
 
 
 void *writring(void *arg);
-void *reading(void *arg)
+void *reading(void *arg);
 
 main(int argc, char * argv[]) {
   int        fd;
@@ -46,7 +46,7 @@ main(int argc, char * argv[]) {
   close(fd);
 
   *addr = 0;
-  
+
   pthread_t tid_W[N_WRITER];
   pthread_t tid_R[N_READER];
 
